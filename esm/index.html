@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Enterprise Software Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Enterprise Software Management</h1>
+  <button id="theme" aria-label="Toggle theme">Theme</button>
+  <button class="primary" id="add">Add software</button>
+</header>
+<main>
+  <section class="stats" id="stats"></section>
+  <div class="bar">
+    <input id="q" placeholder="Search by name, vendor or owner" aria-label="Search">
+    <select id="cat" aria-label="Category"></select>
+    <select id="st" aria-label="Status"></select>
+  </div>
+  <div class="wrap"><table>
+    <thead><tr id="head"></tr></thead><tbody id="rows"></tbody>
+  </table><div class="empty" id="empty" hidden>No software matches. Clear the filters or add a new entry.</div></div>
+</main>
+
+<dialog id="dlg"><form method="dialog" id="form">
+  <h2 id="dtitle" style="margin:0 0 4px">Add software</h2>
+  <label>Name<input name="name" required></label>
+  <div class="row"><label>Vendor<input name="vendor" required></label><label>Version<input name="version"></label></div>
+  <div class="row"><label>Category<select name="category"><option>Productivity</option><option>Security</option><option>Development</option><option>Finance</option><option>HR</option><option>Operations</option></select></label>
+  <label>Owner (team)<input name="owner"></label></div>
+  <div class="row"><label>Licences purchased<input name="seats" type="number" min="1" required></label><label>Licences in use<input name="used" type="number" min="0" required></label></div>
+  <div class="row"><label>Annual cost (₹)<input name="cost" type="number" min="0" required></label><label>Renewal date<input name="renewal" type="date" required></label></div>
+  <label><input type="checkbox" name="retired" style="width:auto"> Retired</label>
+  <div class="actions"><button type="button" id="cancel">Cancel</button><button class="primary" id="save" value="save">Save</button></div>
+</form></dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
